@@ -1,6 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
-import sharp from "sharp";
-import fs, { promises as fsPromise } from "fs";
+import fs from "fs";
 import path from "path";
 import { getFile, resizeFile } from "../utilities/resize";
 
@@ -33,16 +32,10 @@ router.get(
             next(result.content);
           }
         });
-      } catch (error: any) {
-        throw new Error(error.message);
+      } catch (error: unknown) {
+        throw new Error((error as { message: string }).message);
       }
     }
-  }
-);
-router.get(
-  "/images2",
-  async (req: Request, res: Response, next: NextFunction) => {
-    res.status(200).json("123");
   }
 );
 

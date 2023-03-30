@@ -1,11 +1,8 @@
 import { getFile, resizeFile } from "../utilities/resize";
 import supertest from "supertest";
-
-import api from "./../routes/api";
 import app from "./../index";
 
 const request = supertest(app);
-const request2 = supertest(api);
 
 describe("test load file", () => {
   it("should contain file in the server", (done) => {
@@ -24,6 +21,7 @@ describe("test resize file", () => {
 
 describe("test endpoint", () => {
   it("should reize and response file in the server", async () => {
+    // I have no ideal to do without any here
     const response: any = await request.get(
       "/api/images?fileName=encenadaport.jpg&width=500&height=500"
     );
