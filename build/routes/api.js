@@ -47,7 +47,4 @@ router.get("/images", (req, res, next) => __awaiter(void 0, void 0, void 0, func
         }
     }
 }));
-router.get("/images2", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    res.status(200).json("123");
-}));
 exports.default = router;

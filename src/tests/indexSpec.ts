@@ -20,11 +20,11 @@ describe("test resize file", () => {
 });
 
 describe("test endpoint", () => {
-  it("should reize and response file in the server", async () => {
-    // I have no ideal to do without any here
-    const response: any = await request.get(
-      "/api/images?fileName=encenadaport.jpg&width=500&height=500"
-    );
-    expect(response.res.socket._httpMessage.res.statusCode).toBe(200);
+  it("should fail to get deleted customer", function () {
+    return request
+      .get("/api/images?fileName=encenadaport.jpg&width=500&height=500")
+      .set("Accept", "application/json")
+      .expect("Content-Type", "image/jpeg")
+      .expect(200);
   });
 });
